@@ -11,6 +11,20 @@ This pipeline is designed as a reusable template for text preprocessing in NLP t
 
 ---
 
+## 📚 Table of Contents
+
+- [1 - Remove HTML Tags](#1-remove-html-tags)
+- [2 - Convert to Lowercase](#2-convert-to-lowercase)
+- [3 - Expand Contractions](#3-expand-contractions)
+- [4 - Remove URLs](#4-remove-urls)
+- [5 - Remove Punctuation and Special Characters](#5-remove-punctuation--special-characters)
+- [6 - Remove Extra Whitespace](#6-remove-extra-whitespace)
+- [7 - Tokenization](#7-tokenization)
+- [8 - Remove Stopwords](#8-remove-stopwords)
+- [9 - Lemmatization](#9-lemmatization)
+
+---
+
 ## ⚙️ Preprocessing Steps
 
 ### 1. Remove HTML Tags  
@@ -23,6 +37,10 @@ Use Code:
 ```python
 re.sub(r'<.*?>', '', text)
 ```
+
+[Back To The Table of Contents](#-table-of-contents)
+
+
 ### 2. Convert to Lowercase
 Ensures consistency by treating `Apple` and `apple` as the same word.
 
@@ -30,6 +48,9 @@ Use Code:
 ```python
 text.lower()
 ```
+
+[Back To The Table of Contents](#-table-of-contents)
+
 
 ### 3. Expand Contractions
 Expands shortened forms to their original structure.
@@ -40,6 +61,10 @@ Use Code:
 ```python
 contractions.fix(text)
 ```
+
+[Back To The Table of Contents](#-table-of-contents)
+
+
 ### 4. Remove URLs
 Removes unnecessary web links from text.
 
@@ -47,6 +72,9 @@ Use Code:
 ```python
 re.sub(r'http\\S+|www\\S+|https\\S+', '', text)
 ```
+
+[Back To The Table of Contents](#-table-of-contents)
+
 
 ### 5. Remove Punctuation & Special Characters
 Removes noise such as symbols and punctuation marks.
@@ -58,6 +86,8 @@ Use Code:
 re.sub(r'[^a-zA-Z0-9\\s]', '', text)
 ```
 
+[Back To The Table of Contents](#-table-of-contents)
+
 ### 6. Remove Extra Whitespace
 Trims down extra spaces.
 **Example:**  
@@ -67,6 +97,8 @@ Use Code:
 ```python
 ' '.join(text.split())
 ```
+
+[Back To The Table of Contents](#-table-of-contents)
 
 ### 7. Tokenization
 Splits text into individual words or tokens.
@@ -79,6 +111,8 @@ from nltk.tokenize import word_tokenize
 word_tokenize(text)
 ```
 
+[Back To The Table of Contents](#-table-of-contents)
+
 ### 8. Remove Stopwords
 Filters out common words that carry little meaning like `"the"`, `"is"`, `"in"`, `etc`.
 
@@ -88,6 +122,8 @@ from nltk.corpus import stopwords
 stop_words = set(stopwords.words('english'))  
 [word for word in tokens if word not in stop_words]
 ```
+
+[Back To The Table of Contents](#-table-of-contents)
 
 ### 9. Lemmatization
 Reduces words to their base or dictionary form.
@@ -101,6 +137,9 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()  
 lemmatizer.lemmatize(word)
 ```
+
+[Back To The Table of Contents](#-table-of-contents)
+
 ---
 
 ## ✅ Why Use This Pipeline?
