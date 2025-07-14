@@ -22,6 +22,7 @@ This pipeline is designed as a reusable template for text preprocessing in NLP t
 - [7 - Tokenization](#7-tokenization)
 - [8 - Remove Stopwords](#8-remove-stopwords)
 - [9 - Lemmatization](#9-lemmatization)
+- [10 - Stemming](#10-stemming)
 
 ---
 
@@ -140,6 +141,21 @@ lemmatizer.lemmatize(word)
 
 [Back To The Table of Contents](#-table-of-contents)
 
+### 10. Stemming
+
+Cuts off word endings to reduce them to their stem/root form. Less accurate than lemmatization but faster.
+
+**Example:**  
+`running, runner, runs → run`
+
+Use Code:
+```python
+from nltk.stem import PorterStemmer  
+stemmer = PorterStemmer()  
+stemmer.stem(word)
+```
+
+[Back To The Table of Contents](#-table-of-contents)
 ---
 
 ## ✅ Why Use This Pipeline?
