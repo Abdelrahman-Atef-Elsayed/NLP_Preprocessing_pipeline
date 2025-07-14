@@ -4,8 +4,9 @@ import nltk
 from typing import List, Union
 import pandas as pd
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
+from nltk.stem import WordNetLemmatizer, PorterStemmer
 
+# تحميل الموارد المطلوبة من NLTK
 nltk.download("punkt")
 nltk.download("stopwords")
 nltk.download("wordnet")
@@ -16,15 +17,19 @@ class TextPreprocessor:
                  remove_punctuation=True,
                  remove_stopwords=True,
                  lemmatize=True,
+                 stem=False,  # ← خيار جديد لتفعيل Stemming
                  language='english'):
 
         self.lowercase = lowercase
         self.remove_punctuation = remove_punctuation
         self.remove_stopwords = remove_stopwords
         self.lemmatize = lemmatize
+        self.stem = stem  # ← حفظ الخيار
         self.language = language
+
         self.stop_words = set(stopwords.words(language))
         self.lemmatizer = WordNetLemmatizer()
+        self.stemmer = PorterStemmer()  # ← إعداد الـ stemmer
 
     def _clean_text(self, text: str) -> str:
         if self.lowercase:
@@ -40,6 +45,9 @@ class TextPreprocessor:
 
         if self.lemmatize:
             tokens = [self.lemmatizer.lemmatize(word) for word in tokens]
+
+        if self.stem:
+            tokens = [self.stemmer.stem(word) for word in tokens]
 
         return ' '.join(tokens)
 
