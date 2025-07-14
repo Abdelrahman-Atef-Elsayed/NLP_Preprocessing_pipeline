@@ -156,6 +156,7 @@ stemmer.stem(word)
 ```
 
 [Back To The Table of Contents](#-table-of-contents)
+
 ---
 
 ## ✅ Why Use This Pipeline?
